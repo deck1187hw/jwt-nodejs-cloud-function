@@ -8,7 +8,7 @@ const CLOUD_FUNCTION_URL = `https://europe-west3-test.cloudfunctions.net/endpoin
 let jwtClient = new google.auth.JWT(
     process.env.SERVICE_ACCOUNT_CLIENT_EMAIL,
     null,
-    process.env.SERVICE_ACCOUNT_PRIVATE_KEY,
+    process.env.SERVICE_ACCOUNT_PRIVATE_KEY.replace(/\\n/gm, '\n'),
     process.env.SERVICE_ACCOUNT_AUDIENCE
 );
 
