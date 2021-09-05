@@ -17,15 +17,15 @@ gcloud iam service-accounts create service-1 \
 ```
 ### Give Service account Cloud function invoker permission
 ```
-gcloud projects add-iam-policy-binding chartwell-consulting \
-    --member="serviceAccount:service-1@chartwell-consulting.iam.gserviceaccount.com" \
+gcloud projects add-iam-policy-binding my-awesome-company \
+    --member="serviceAccount:service-1@my-awesome-company.iam.gserviceaccount.com" \
     --role="roles/cloudfunctions.invoker"
 ```
 
 ### Create JSON Key
 ```
 gcloud iam service-accounts keys create /tmp/sa-private-key.json \
-    --iam-account=service-1@chartwell-consulting.iam.gserviceaccount.com
+    --iam-account=service-1@my-awesome-company.iam.gserviceaccount.com
 ```
 
 ### Installation
@@ -61,5 +61,5 @@ Bearer Token Will be printed in the console:
 Make sure you deploy your cloud function with the newly created service account as:
 
 ```
-gcloud functions deploy (...) --service-account=service-1@chartwell-consulting.iam.gserviceaccount.com
+gcloud functions deploy (...) --service-account=service-1@my-awesome-company.iam.gserviceaccount.com
 ```
